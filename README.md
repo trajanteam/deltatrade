@@ -1,3 +1,3 @@
-# Δt
+# Δtrade
 
-Deltatrade is a decentralized exchange running on Ethereum. 
+Deltatrade is a decentralized exchange running on Ethereum.
