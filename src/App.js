@@ -8,7 +8,6 @@ import List from 'material-ui/List';
 import Typography from 'material-ui/Typography';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
-import 'typeface-roboto'
 
 import { mailFolderListItems } from './CoinData';
 import MarketContainer from './components/MarketContainer';
