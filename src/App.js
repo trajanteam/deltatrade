@@ -8,11 +8,15 @@ import List from 'material-ui/List';
 import Typography from 'material-ui/Typography';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
+import 'typeface-roboto'
 
 import { mailFolderListItems } from './CoinData';
 import MarketContainer from './components/MarketContainer';
 import Deposit from './components/Deposit';
 import Withdraw from './components/Withdraw';
+
+import web3 from './web3';
+import deltatrade from './deltatrade.js';
 
 const drawerWidth = 140;
 
@@ -56,6 +60,11 @@ const styles = theme => ({
 });
 
 class App extends Component {
+
+    async componentDidMount() {
+
+    }
+
     render() {
         const { classes } = this.props;
 
@@ -96,8 +105,5 @@ class App extends Component {
     }
 }
 
-App.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
 
 export default withStyles(styles)(App);
