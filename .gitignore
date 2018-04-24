@@ -1,0 +1,9 @@
+.idea
+node_modules
+npm-debug.log.*
+pids
+pub.sock
+rpc.sock
+.DS_Store
+*.swp
+*.iml
