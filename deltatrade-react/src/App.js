@@ -1,70 +1,104 @@
-import React, { Component } from 'react';
-import { Menu } from 'semantic-ui-react'
-import web3 from './web3';
-import deltatrade from './deltatrade.js';
-import Nav from './Nav';
+import React ,{ Component } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
+import Drawer from 'material-ui/Drawer';
+import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
+import List from 'material-ui/List';
+import Typography from 'material-ui/Typography';
+import TextField from 'material-ui/TextField';
+import Button from 'material-ui/Button';
+import 'typeface-roboto'
+
+import { mailFolderListItems } from './CoinData';
+import MarketContainer from './components/MarketContainer';
+import Deposit from './components/Deposit';
+import Withdraw from './components/Withdraw';
+
+const drawerWidth = 140;
+
+const styles = theme => ({
+    root: {
+        flexGrow: 1,
+        zIndex: 1,
+        overflow: 'hidden',
+        position: 'relative',
+        display: 'flex',
+    },
+    appBar: {
+        backgroundColor: '#0f0f0f',
+        zIndex: theme.zIndex.drawer + 1,
+    },
+    drawerPaper: {
+        position: 'relative',
+        backgroundColor: '#1c222d',
+        width: drawerWidth,
+    },
+    content: {
+        flexGrow: 1,
+        backgroundColor: '#2b3441',
+        padding: theme.spacing.unit * 1,
+        minWidth: 0, // So the Typography noWrap works
+    },
+    bootstrapRoot: {
+        padding: '10px 10px',
+    },
+    bootstrapInput: {
+        backgroundColor: '#2b3441',
+        fontSize: 16,
+        color: '#979999',
+        padding: '4px 8px',
+        width: '10px',
+    },
+    flex: {
+        flex: 1
+    },
+    toolbar: theme.mixins.toolbar,
+});
 
 class App extends Component {
-  state = {
-    admin: '',
-    feeAcount: '',
-    value: '',
-    message: '',
-    balance: ''
-  };
+    render() {
+        const { classes } = this.props;
 
-  async componentDidMount() {
-    const admin = await deltatrade.methods.admin().call();
-    const feeAccount = await deltatrade.methods.feeAccount().call();
-    const accounts = await web3.eth.getAccounts();
-    const balance = await deltatrade.methods.tokens(0,accounts[0]).call();
+        return (
+            <div className={classes.root}>
 
-    this.setState({ admin, feeAccount, balance });
-  }
+                <AppBar position="absolute" className={classes.appBar} elevation={0}>
+                    <Toolbar>
+                        <Typography variant="title" color="inherit"  className={classes.flex} noWrap>
+                            EXCHANGE : )
+                        </Typography>
+                        <Deposit />
+                        <Withdraw />
+                    </Toolbar>
+                </AppBar>
 
-  onSubmit = async (event) => {
-      event.preventDefault();
+                <Drawer variant="permanent" classes={{paper: classes.drawerPaper}}>
+                    <div className={classes.toolbar} />
+                    <TextField defaultValue="Find..." id="bootstrap-input"
+                               InputProps={{
+                                   disableUnderline: true,
+                                   classes: {
+                                       root: classes.bootstrapRoot,
+                                       input: classes.bootstrapInput,
+                                   },
+                               }}
+                    />
+                    <List>{mailFolderListItems}</List>
+                </Drawer>
 
-      const accounts = await web3.eth.getAccounts();
+                <main className={classes.content}>
+                    <div className={classes.toolbar} />
+                    <MarketContainer />
+                </main>
 
-      this.setState({ message: 'Waiting on transaction success...' })
-
-      await deltatrade.methods.deposit().send({
-          from: accounts[0],
-          value: web3.utils.toWei(this.state.value, 'ether')
-      });
-
-      this.setState({ message : 'Succeed to deposit!' });
-
-  };
-
-  render() {
-    return (
-
-      <div>
-        <Nav name="DeltaTrade" />
-
-        <h2>DeltaTrade Contract</h2>
-        <p>This contract is managed by {this.state.admin}</p>
-        <p>The feeAccount of this contract is {this.state.feeAccount}</p>
-
-        <form onSubmit={this.onSubmit}>
-          <h4>Deposit Ether!</h4>
-            <div>
-                <label>Amount of ether to deposit</label>
-                <input
-                value={this.state.value}
-                onChange={event => this.setState({ value: event.target.value})}
-                />
-                <button>Deposit</button>
             </div>
-        </form>
-
-        <h1>{this.state.message}</h1>
-        <p>Your balance is {web3.utils.fromWei(this.state.balance, 'ether')} ether!</p>
-      </div>
-    )
-  }
+        );
+    }
 }
 
-export default App;
+App.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(App);
