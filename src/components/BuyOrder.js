@@ -72,7 +72,7 @@ function BuyOrder(props) {
 }
 
 BuyOrder.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object,
 };
 
 export default BuyOrder;

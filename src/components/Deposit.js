@@ -7,8 +7,6 @@ import Dialog, {
   DialogContentText,
   DialogTitle,
 } from 'material-ui/Dialog';
-import deltatrade from "../deltatrade";
-import web3 from "../web3";
 
 export default class Deposit extends React.Component {
   state = {
@@ -17,9 +15,6 @@ export default class Deposit extends React.Component {
 
   handleClickOpen = () => {
     this.setState({ open: true });
-    this.depositEth().then(() => {
-        console.log('Succeed to deposit!');
-    });
   };
 
   handleClose = () => {
@@ -63,25 +58,4 @@ export default class Deposit extends React.Component {
     );
   }
 
-  async depositEth(){
-      const admin = await deltatrade.methods.admin().call();
-      const feeAccount = await deltatrade.methods.feeAccount().call();
-      const accounts = await web3.eth.getAccounts();
-      const balance = await deltatrade.methods.tokens(0,accounts[0]).call();
-
-      this.setState({ admin, feeAccount, balance });
-
-
-      console.log(`This contract is managed by ${this.state.admin}`);
-      console.log(`The feeAccount of this contract is ${this.state.feeAccount}`);
-      console.log(`Your balance is ${web3.utils.fromWei(this.state.balance, 'ether')} ether!`);
-
-      console.log('Waiting on transaction success...');
-
-      deltatrade.methods.deposit().send({
-          from: accounts[0],
-          value: web3.utils.toWei('100', 'ether')
-      });
-
-  }
 }

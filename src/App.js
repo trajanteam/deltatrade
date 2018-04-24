@@ -14,6 +14,7 @@ import { mailFolderListItems } from './CoinData';
 import MarketContainer from './components/MarketContainer';
 import Deposit from './components/Deposit';
 import Withdraw from './components/Withdraw';
+import Login from './components/Login';
 
 import web3 from './web3';
 import deltatrade from './deltatrade.js';
@@ -78,6 +79,7 @@ class App extends Component {
                         </Typography>
                         <Deposit />
                         <Withdraw />
+                        <Login />
                     </Toolbar>
                 </AppBar>
 
