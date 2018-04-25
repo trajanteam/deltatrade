@@ -75,7 +75,7 @@ class App extends Component {
                 <AppBar position="absolute" className={classes.appBar} elevation={0}>
                     <Toolbar>
                         <Typography variant="title" color="inherit"  className={classes.flex} noWrap>
-                            EXCHANGE : )
+                            DeltaTrade
                         </Typography>
                         <Deposit />
                         <Withdraw />
