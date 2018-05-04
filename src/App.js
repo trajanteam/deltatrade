@@ -14,7 +14,7 @@ import { mailFolderListItems } from './CoinData';
 import MarketContainer from './components/MarketContainer';
 import Deposit from './components/Deposit';
 import Withdraw from './components/Withdraw';
-import Login from './components/Login';
+import Balance from './components/Balance';
 
 import web3 from './web3';
 import deltatrade from './deltatrade.js';
@@ -61,9 +61,25 @@ const styles = theme => ({
 });
 
 class App extends Component {
+    state = {
+      login: false,
+      account : '',
+    }
 
     async componentDidMount() {
+      const userAccount = await web3.eth.getAccounts();
 
+      if (!userAccount[0]) {
+        alert('You need to login with Metamask!');
+      }
+      else {
+        alert('Welcome, My friend!');
+        this.setState({
+          login: true,
+          account: userAccount[0]
+        });
+      console.log(this.state.account);
+      }
     }
 
     render() {
@@ -79,7 +95,7 @@ class App extends Component {
                         </Typography>
                         <Deposit />
                         <Withdraw />
-                        <Login />
+                        <Balance account={this.state.account} />
                     </Toolbar>
                 </AppBar>
 

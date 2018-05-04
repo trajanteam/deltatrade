@@ -1,40 +1,27 @@
 import React from 'react';
 import Button from 'material-ui/Button';
-import web3 from "../web3";
+import web3 from '../web3';
+import deltatrade from '../deltatrade';
 
-class Login extends React.Component {
+class Balance extends React.Component {
   state = {
-    status : 'Login',
-    accounts: [],
     etherBalance: '',
   }
 
-  handleLogin = async() => {
-    const accounts = await web3.eth.getAccounts();
-    const weiBalance = await web3.eth.getBalance(accounts[0])
-    console.log(weiBalance.toString());
+  async componentDidMount() {
+    const weiBalance = await deltatrade.methods.balanceOf(0, this.props.account).call()
+    console.log(weiBalance);
     const etherBalance = await web3.utils.fromWei(weiBalance, 'ether')
-
+    console.log(etherBalance);
     this.setState({
-        status: 'Balance : ',
-        accounts,
-        etherBalance,
+      etherBalance: weiBalance
      });
-
-    if(!!this.state.accounts[0]){
-        alert('success');
-    } else{
-        alert('need login with metamask on the rinkeby testnet');
-    }
   };
 
   render() {
     return (
       <div>
-        <Button onClick={this.handleLogin} style={{color:'#f65534'}} size='small' >
-          {this.state.status}
-          <div>{this.state.etherBalance}</div>
-        </Button>
+          <div>DeltaTrade Balance: {this.state.etherBalance}</div>
       </div>
     );
   }
@@ -60,4 +47,4 @@ class Login extends React.Component {
 //     });
 //
 // }
-export default Login;
+export default Balance;
