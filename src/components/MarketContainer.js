@@ -30,16 +30,16 @@ export class MarketContainer extends Component {
       <div className={classes.root}>
         <Grid container spacing={8}>
           <Grid item xs={10}>
-            <Paper className={classes.tradingView}>xs=6</Paper>
+            <Paper className={classes.tradingView}>xs=10</Paper>
           </Grid>
           <Grid item xs={2}>
-            <Paper className={classes.etc}>xs=6</Paper>
+            <Paper className={classes.etc}>xs=2</Paper>
           </Grid>
           <Grid item xs={10}>
             <OrderBook/>
           </Grid>
           <Grid item xs={2}>
-            <Paper className={classes.etc}>xs=3</Paper>
+            <Paper className={classes.etc}>xs=2</Paper>
           </Grid>
 
         </Grid>

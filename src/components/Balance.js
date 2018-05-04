@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'material-ui/Button';
-import web3 from '../web3';
-import deltatrade from '../deltatrade';
+import web3 from '../ethereum/web3';
+import deltatrade from '../ethereum/deltatrade';
 
 class Balance extends React.Component {
   state = {

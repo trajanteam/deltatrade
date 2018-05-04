@@ -16,10 +16,10 @@ import Deposit from './components/Deposit';
 import Withdraw from './components/Withdraw';
 import Balance from './components/Balance';
 
-import web3 from './web3';
-import deltatrade from './deltatrade.js';
+import web3 from './ethereum/web3';
+import deltatrade from './ethereum/deltatrade.js';
 
-const drawerWidth = 140;
+const drawerWidth = 270;
 
 const styles = theme => ({
     root: {

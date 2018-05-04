@@ -1,6 +1,7 @@
 import React from 'react';
-import web3 from "../web3";
-import deltatrade from "../deltatrade";
+import web3 from "../ethereum/web3";
+import deltatrade from "../ethereum/deltatrade";
+
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Dialog, {
