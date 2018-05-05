@@ -7,8 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "start1": "node ./server.dev.js webpack.config.js --watch",
-    "start": "react-scripts start",
+    "dev": "node ./server.dev.js webpack.config.js --watch",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
