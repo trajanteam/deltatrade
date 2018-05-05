@@ -1,8 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import App from './App'
+import registerServiceWorker from './registerServiceWorker'
+
+import './index.css'
+
+ReactDOM.render(<App />, document.getElementById('root'))
+registerServiceWorker()
+
+if (module.hot) {
+  module.hot.accept('./App.js', () => {
+    const NextApp = require('./App').default
+    ReactDOM.render(<NextApp />, document.getElementById('root'))
+    console.log('Hot module replaced..')
+  })
+}

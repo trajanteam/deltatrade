@@ -4,6 +4,12 @@ import BuyOrder from './BuyOrder'
 import SellOrder from './SellOrder'
 import PlaceOrder from './PlaceOrder'
 
-export default class Market extends Component {
-
+class Market extends Component {
+  render() {
+    return (
+      <div className="Market"></div>
+    )
+  }
 }
+
+export default Market
