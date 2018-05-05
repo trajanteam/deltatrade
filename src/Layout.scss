@@ -1,0 +1,68 @@
+$left-layout: 25%;
+$center-layout: 60%;
+$right-layout: 15%;
+
+%border {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.Layout {
+  margin: 0 auto;
+  width: 100vw;
+  min-width: 1200px;
+  min-height: 700px;
+  height: 100vh;
+}
+
+.Layout__Header {
+  @extend %border;
+  display: block;
+  min-height: 60px;
+}
+
+.Layout__Left {
+  display: inline-block;
+  vertical-align: top;
+  width: $left-layout;
+  height: 100%;
+}
+
+.Layout__Sidebar {
+  @extend %border;
+  height: 100%;
+}
+
+.Layout__Center {
+  display: inline-block;
+  width: $center-layout;
+  height: 100%;
+}
+
+.Layout__Chart {
+  @extend %border;
+  width: 100%;
+  height: 50%;
+}
+
+.Layout__OrderBook {
+  @extend %border;
+  width: 100%;
+  height: 50%;
+}
+
+.Layout__Right {
+  display: inline-block;
+  width: $right-layout;
+  height: 100%;
+}
+
+.Layout__Market {
+  @extend %border;
+  height: 50%;
+}
+
+.Layout__RecentTrade {
+  @extend %border;
+  height: 50%;
+}
