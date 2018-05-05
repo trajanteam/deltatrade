@@ -1,0 +1,18 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb",
+  ],
+  "rules": {
+    "import/no-unresolved": false,
+    "import/extensions": false,
+    "semi": 0,
+    "no-console": 0,
+    "react/jsx-filename-extension": false,
+    "prefer-arrow-callback": 0,
+    "import/no-extraneous-dependencies": 0,
+    "comma-dangle": ["error", "always-multiline"],
+  }
+}
