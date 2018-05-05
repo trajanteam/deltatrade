@@ -1,24 +1,17 @@
 import React, { Component } from 'react'
 
-import Market from 'components/Market'
+import Layout from './Layout'
 
 import './App.scss'
 
 class App extends Component {
   componentDidMount() {
-    const hello = {
-      hello: 'sdfm',
-      asdasd: 'sdfm',
-    }
-    console.log('app mounted', hello)
+    console.log('app mounted')
   }
 
   render() {
     return (
-      <div className="App">
-        Welcome to the Delta Trade!
-        <Market />
-      </div>
+      <Layout />
     )
   }
 }
