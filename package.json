@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "dev": "node ./server.dev.js webpack.config.js --watch",
+    "dev": "node ./server.dev.js webpack.config.js --watch & open http://localhost:8000",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

@@ -19,8 +19,8 @@ if (isDeveloping) {
       timings: true,
       chunks: false,
       chunkModules: false,
-      modules: false
-    }
+      modules: false,
+    },
   })
 
   app.use(middleware)
