@@ -3,6 +3,7 @@ const path = require('path')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+require('babel-polyfill')
 
 const extractCSS = new ExtractTextPlugin('bundle-[hash:6].css')
 
@@ -10,8 +11,9 @@ module.exports = {
   devtool: 'source-map',
   mode: 'development',
   entry: [
+    'babel-polyfill',
     path.resolve(__dirname, 'src/index.js'),
-    'webpack-hot-middleware/client'
+    'webpack-hot-middleware/client',
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
