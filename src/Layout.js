@@ -1,15 +1,13 @@
 import React from 'react'
 
 import './Layout.scss'
+import Nav from 'components/Nav/index'
 
 const Layout = () => (
   <div className="Layout">
     <div className="Layout__Header">
-      {/*
-        TODO: import Nav component,
-        ex: <Nav />
-      */}
       Layout__Header
+      <Nav />
     </div>
     <LayoutLeft />
     <LayoutCenter />
