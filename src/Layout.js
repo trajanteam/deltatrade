@@ -1,12 +1,21 @@
 import React from 'react'
 
 import './Layout.scss'
+import Chart from 'components/Chart/index'
 import Nav from 'components/Nav/index'
+import Market from 'components/Market/index'
+import MarketHistory from 'components/History/MarketHistory'
+import RecentTrade from 'components/History/RecentTrade'
+
 
 const Layout = () => (
   <div className="Layout">
     <div className="Layout__Header">
-      Layout__Header
+      {/*
+        Layout__Header
+        TODO: import Nav component,
+        ex: <Nav />
+      */}
       <Nav />
     </div>
     <LayoutLeft />
@@ -32,16 +41,17 @@ const LayoutCenter = () => (
     <div className="Layout__Chart">
       {/*
         TODO: import Chart component,
-        ex: <Sidebar />
+        ex: <Chart />
       */}
       Layout__Chart
+
     </div>
     <div className="Layout__OrderBook">
       {/*
         TODO: import OrderBook component,
         ex: <OrderBook />
       */}
-      Layout__OrderBook
+      <Market />
     </div>
   </div>
 )
@@ -54,6 +64,7 @@ const LayoutRight = () => (
         ex: <Market />
       */}
       Layout__Market
+      <MarketHistory />
     </div>
     <div className="Layout__RecentTrade">
       {/*
@@ -61,6 +72,7 @@ const LayoutRight = () => (
         ex: <RecentTrade />
       */}
       Layout__RecentTrade
+      <RecentTrade />
     </div>
   </div>
 )

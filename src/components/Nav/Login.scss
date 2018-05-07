@@ -1,5 +1,20 @@
 .Nav__Login {
   display: inline-block;
   width: 98%;
+}
+
+.Nav__Login--empty {
+  display: inline-block;
+  width: 1%;
+}
+
+.Nav__Login--account {
+  display: inline-block;
+  width: 85%;
   text-align: right;
+}
+
+.Nav__Login--balance {
+  display: inline-block;
+  width: 14%;
 }

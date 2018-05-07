@@ -16,7 +16,8 @@ export default class Login extends Component {
 
   async componentDidMount() {
     const userAccount = await web3.eth.getAccounts()
-    const userBalance = await web3.eth.getBalance(userAccount[0])
+    const weiBalance = await deltatrade.methods.balanceOf(0, userAccount[0]).call()
+    const etherBalance = await web3.utils.fromWei(weiBalance, 'ether')
 
     if (!userAccount[0]) {
       console.log('YOU NEED TO LOGIN WITH METAMASK!!!')
@@ -25,7 +26,7 @@ export default class Login extends Component {
       this.setState({
         login: true,
         account: userAccount[0],
-        balance: userBalance,
+        balance: etherBalance,
       })
     }
   }
@@ -33,12 +34,14 @@ export default class Login extends Component {
   render() {
     return (
       <div className="Nav__Login">
-        <span>
+        <div className="Nav__Login--account">
           Account: {this.state.account}
-        </span>
-        <span>
-          Balance: {this.state.balance}
-        </span>
+        </div>
+        <div className="Nav__Login--empty">
+        </div>
+        <div className="Nav__Login--balance">
+          DeltaTrade Balance: {this.state.balance}
+        </div>
       </div>
     )
   }
