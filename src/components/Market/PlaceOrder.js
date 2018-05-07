@@ -3,6 +3,10 @@ import React, { Component, Fragment } from 'react'
 import './PlaceOrder.scss'
 
 export default class PlaceOrder extends Component {
+  /*
+    TODO:
+    control states using Redux
+  */
   state = {
     buyTab: 'Activated',
     sellTab: 'Deactivated',
@@ -31,6 +35,10 @@ export default class PlaceOrder extends Component {
     })
   }
 
+  /*
+    TODO:
+    make onInput Callback function to set state on each <input>
+  */
   onAmountInputChange = () => {
 
   }
