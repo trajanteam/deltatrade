@@ -11,18 +11,18 @@ export default class Withdraw extends Component {
     tokenType: '',
   }
 
-  onClickDeposit() {
+  onClickWithdraw() {
     alert("comming soon!")
   }
 
   render() {
     return (
       /*
-        TODO: if user clicks button, modal pops up to type amount and tokenType
+        TODO: if user clicks button, modal pops up to type amount and tokenType in
       */
       <button
-        className="Nav__Withdraw--button"
-        onClick={this.onClickDeposit}
+        className="Withdraw__button"
+        onClick={this.onClickWithdraw}
       >
         Withdraw
       </button>

@@ -3,14 +3,14 @@
   border-collapse: collapse;
 }
 
-.Market__BuyOrder {
+.BuyOrder {
   @extend %border;
   display: inline-block;
   width: 100%;
   height: 45%;
 }
 
-.Market__BuyOrder--Header {
+.BuyOrder__Header {
   @extend %border;
   display: inline-block;
   width: 100%;
@@ -18,7 +18,7 @@
   vertical-align: top;
 }
 
-.Market__BuyOrder--Price {
+.BuyOrder__Price {
   @extend %border;
   display: inline-block;
   width: 33%;
@@ -28,7 +28,7 @@
   list-style: none;
 }
 
-.Market__BuyOrder--CurrentBalance {
+.BuyOrder__CurrentBalance {
   @extend %border;
   display: inline-block;
   width: 33%;
@@ -38,7 +38,7 @@
   list-style: none;
 }
 
-.Market__BuyOrder--TotalBalance {
+.BuyOrder__TotalBalance {
   @extend %border;
   display: inline-block;
   width: 34%;

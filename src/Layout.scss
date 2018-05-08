@@ -58,12 +58,12 @@ $right-layout: 15%;
   height: 100%;
 }
 
-.Layout__Market {
+.Layout__RecentTrades {
   @extend %border;
   height: 50%;
 }
 
-.Layout__RecentTrade {
+.Layout__MyTrades {
   @extend %border;
   height: 50%;
 }

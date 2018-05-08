@@ -5,7 +5,7 @@ import Deposit from './Deposit'
 import Withdraw from './Withdraw'
 import Login from './Login'
 
-export default class Nav extends Component {
+class Nav extends Component {
   render() {
     return (
       <div className="Nav">
@@ -16,3 +16,5 @@ export default class Nav extends Component {
     )
   }
 }
+
+export default Nav

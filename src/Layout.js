@@ -4,8 +4,8 @@ import './Layout.scss'
 import Chart from 'components/Chart/index'
 import Nav from 'components/Nav/index'
 import Market from 'components/Market/index'
-import MarketHistory from 'components/History/MarketHistory'
-import RecentTrade from 'components/History/RecentTrade'
+import RecentTrades from 'components/History/RecentTrades'
+import MyTrades from 'components/History/MyTrades'
 
 
 const Layout = () => (
@@ -58,21 +58,19 @@ const LayoutCenter = () => (
 
 const LayoutRight = () => (
   <div className="Layout__Right">
-    <div className="Layout__Market">
+    <div className="Layout__RecentTrades">
       {/*
         TODO: import Market component,
         ex: <Market />
       */}
-      Layout__Market
-      <MarketHistory />
+      <RecentTrades />
     </div>
-    <div className="Layout__RecentTrade">
+    <div className="Layout__MyTrades">
       {/*
         TODO: import RecentTrade component,
         ex: <RecentTrade />
       */}
-      Layout__RecentTrade
-      <RecentTrade />
+      <MyTrades />
     </div>
   </div>
 )

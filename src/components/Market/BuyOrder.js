@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import './BuyOrder.scss'
 
-export default class BuyOrder extends Component {
+class BuyOrder extends Component {
   /*
     TODO:
     Get orders info from server
@@ -17,8 +17,8 @@ export default class BuyOrder extends Component {
 
   render() {
     return (
-      <div className="Market__BuyOrder">
-        <div className="Market__BuyOrder--Header">
+      <div className="BuyOrder">
+        <div className="BuyOrder__Header">
           BuyOrder
         </div>
         {/*
@@ -26,7 +26,7 @@ export default class BuyOrder extends Component {
           Make loop for express <li> elements
           Make each <li> be clickable for that users can make a deal
         */}
-        <div className="Market__BuyOrder--Price">
+        <div className="BuyOrder__Price">
           <li>{this.state.orders.price}</li>
           <li>{this.state.orders.price}</li>
           <li>{this.state.orders.price}</li>
@@ -37,7 +37,7 @@ export default class BuyOrder extends Component {
           <li>{this.state.orders.price}</li>
           <li>{this.state.orders.price}</li>
         </div>
-        <div className="Market__BuyOrder--CurrentBalance">
+        <div className="BuyOrder__CurrentBalance">
           <li>{this.state.orders.currentBalance}</li>
           <li>{this.state.orders.currentBalance}</li>
           <li>{this.state.orders.currentBalance}</li>
@@ -48,7 +48,7 @@ export default class BuyOrder extends Component {
           <li>{this.state.orders.currentBalance}</li>
           <li>{this.state.orders.currentBalance}</li>
         </div>
-        <div className="Market__BuyOrder--TotalBalance">
+        <div className="BuyOrder__TotalBalance">
           <li>{this.state.orders.totalBalance}</li>
           <li>{this.state.orders.totalBalance}</li>
           <li>{this.state.orders.totalBalance}</li>
@@ -62,4 +62,6 @@ export default class BuyOrder extends Component {
       </div>
     )
   }
-  }
+}
+
+export default BuyOrder

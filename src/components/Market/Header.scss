@@ -3,14 +3,14 @@
   border-collapse: collapse;
 }
 
-.Market__Header {
+.Header {
   @extend %border;
   display: inline-block;
   width: 100%;
   height: 10%;
 }
 
-.Market__Header--Price {
+.Header__Price {
   @extend %border;
   display: inline-block;
   width: 33%;
@@ -19,7 +19,7 @@
   text-align: right;
 }
 
-.Market__Header--CurrentBalance {
+.Header__CurrentBalance {
   @extend %border;
   display: inline-block;
   width: 33%;
@@ -28,7 +28,7 @@
   text-align: right;
 }
 
-.Market__Header--TotalBalance {
+.Header__TotalBalance {
   @extend %border;
   display: inline-block;
   width: 34%;

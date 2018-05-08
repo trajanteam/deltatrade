@@ -2,20 +2,22 @@ import React, { Component } from 'react'
 
 import './Header.scss'
 
-export default class Header extends Component {
+class Header extends Component {
   render() {
     return (
-      <div className="Market__Header">
-        <div className="Market__Header--Price">
+      <div className="Header">
+        <div className="Header__Price">
           Price
         </div>
-        <div className="Market__Header--CurrentBalance">
+        <div className="Header__CurrentBalance">
           Current Balance
         </div>
-        <div className="Market__Header--TotalBalance">
+        <div className="Header__TotalBalance">
           Total Balance
         </div>
       </div>
     )
   }
 }
+
+export default  Header

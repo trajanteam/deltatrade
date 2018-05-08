@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 
 import './Deposit.scss'
 
-export default class Deposit extends Component {
+class Deposit extends Component {
   state = {
     /*
       TODO: manage amount & tokenType which user wants to deposit
@@ -21,10 +21,10 @@ export default class Deposit extends Component {
         TODO: if user clicks button, modal pops up to type amount and tokenType
       */
       <Fragment>
-        <div className="Nav__Deposit--empty">
+        <div className="Deposit__empty">
         </div>
         <button
-          className="Nav__Deposit--button"
+          className="Deposit__button"
           onClick={this.onClickDeposit}
         >
           Deposit
@@ -33,3 +33,5 @@ export default class Deposit extends Component {
     )
   }
 }
+
+export default Deposit

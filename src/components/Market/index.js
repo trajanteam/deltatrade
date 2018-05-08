@@ -10,12 +10,12 @@ class Market extends Component {
   render() {
     return (
       <Fragment>
-        <div className="Market__OrderBook">
+        <div className="Orderbook">
           <Header />
           <SellOrder />
           <BuyOrder />
         </div>
-        <div className="Market__Order">
+        <div className="Order">
           <PlaceOrder />
         </div>
       </Fragment>

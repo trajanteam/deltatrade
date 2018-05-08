@@ -34,12 +34,12 @@ export default class Login extends Component {
   render() {
     return (
       <div className="Nav__Login">
-        <div className="Nav__Login--account">
+        <div className="Login__account">
           Account: {this.state.account}
         </div>
-        <div className="Nav__Login--empty">
+        <div className="Login__empty">
         </div>
-        <div className="Nav__Login--balance">
+        <div className="Login__balance">
           DeltaTrade Balance: {this.state.balance}
         </div>
       </div>
