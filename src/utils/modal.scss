@@ -1,0 +1,152 @@
+%border {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.Modal--true {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.Modal--false {
+  display: none;
+}
+
+.Modal__Layout {
+  width: 40%;
+  height: 30%;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 8px;
+}
+
+.Modal__Left {
+  @extend %border;
+  display: inline-block;
+  width: 80%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.Modal__Right {
+  @extend %border;
+  display: inline-block;
+  width: 20%;
+  height: 100%;
+  text-align: right;
+  vertical-align: top;
+}
+
+.Modal__Button {
+  margin-right: 2px;
+  border-radius: 5px;
+  vertical-align: top;
+  color: #aaaaaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.Left__Header {
+  @extend %border;
+  display: block;
+  height: 30%;
+  vertical-align: top;
+}
+
+.Left__OtherToken {
+  @extend %border;
+  display: block;
+  height: 35%;
+  vertical-align: top;
+}
+
+.Left__Eth {
+  @extend %border;
+  display: block;
+  height: 35%;
+  vertical-align: top;
+}
+
+.Header__Token {
+  @extend %border;
+  display: inline-block;
+  width: 30%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.Header__Amount {
+  @extend %border;
+  display: inline-block;
+  width: 35%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.Header__Empty {
+  @extend %border;
+  display: inline-block;
+  width: 35%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.OtherToken__Type {
+  @extend %border;
+  display: inline-block;
+  width: 30%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.OtherToken__Amount {
+  @extend %border;
+  display: inline-block;
+  width: 35%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.OtherToken__Button {
+  @extend %border;
+  display: inline-block;
+  width: 35%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.Eth__Type {
+  @extend %border;
+  display: inline-block;
+  width: 30%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.Eth__Amount {
+  @extend %border;
+  display: inline-block;
+  width: 35%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.Eth__Button {
+  @extend %border;
+  display: inline-block;
+  width: 35%;
+  height: 100%;
+  vertical-align: top;
+}

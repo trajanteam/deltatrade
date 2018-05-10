@@ -1,34 +1,45 @@
 import React, { Component, Fragment } from 'react'
 
 import './Deposit.scss'
+import Modal from '../../utils/modal'
 
 class Deposit extends Component {
   state = {
     /*
       TODO: manage amount & tokenType which user wants to deposit
     */
-    amount: '',
-    tokenType: '',
+    tokenType: 'MKR',
+    modal: false,
   }
 
-  onClickDeposit() {
-    alert("comming soon!")
+  toggleModal = () => {
+    this.setState({
+      modal: !this.state.modal,
+    })
+    console.log(this.state.modal)
+  }
+
+  onClickClose = () => {
+    this.setState({
+      modal: !this.state.modal,
+    })
   }
 
   render() {
-    return(
-      /*
-        TODO: if user clicks button, modal pops up to type amount and tokenType
-      */
+    return (
       <Fragment>
-        <div className="Deposit__empty">
-        </div>
+        <div className="Deposit__Empty" />
         <button
-          className="Deposit__button"
-          onClick={this.onClickDeposit}
+          className="Deposit__Button"
+          onClick={this.toggleModal}
         >
           Deposit
         </button>
+        <Modal
+          status={this.state.modal}
+          tokenType={this.state.tokenType}
+          click={this.onClickClose}
+        />
       </Fragment>
     )
   }
