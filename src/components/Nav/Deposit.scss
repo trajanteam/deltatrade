@@ -1,7 +1,6 @@
-
 .Deposit__Empty {
   display: inline-block;
-  width: 78%;
+  width: 75%;
 }
 
 .Deposit__Button {
@@ -9,17 +8,4 @@
   width: 10%;
   margin: 5px;
   border-radius: 5px;
-}
-
-.Deposit__Modal--true {
-  background-color: red;
-  position: absolute;
-  width: 100px;
-  height: 50px;
-  top: 200px;
-  left: 800px;
-}
-
-.Deposit__Modal--false {
-  display: none;
 }

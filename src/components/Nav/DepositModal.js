@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 
-import './modal.scss'
+import './DepositModal.scss'
 import web3 from 'ethereum/web3'
 import deltatrade from 'ethereum/deltatrade/deltatrade'
 import MKR from 'ethereum/token/MKR/MKR'
@@ -17,15 +17,9 @@ class modal extends Component {
     message: '',
   }
 
-  inputTokenAmount = (event) => {
+  handleChange = (e) => {
     this.setState({
-      tokenAmount: event.target.value
-    })
-  }
-
-  inputEthAmount = (event) => {
-    this.setState({
-      ethAmount: event.target.value
+      [e.target.name]: e.target.value
     })
   }
 
@@ -58,13 +52,13 @@ class modal extends Component {
 
     this.setState({ message: 'Waiting...'})
 
-    await MKR.methods.approve('0x7868b6c8e409ba4d2aeec668676ec3a46fdbf084', value).send({
+    await MKR.methods.approve(tokenAddress, value).send({
       from: accounts[0],
     })
 
     this.setState({ message: 'Approved...'})
 
-    await deltatrade.methods.depositToken('0x65e09e4260d81bc58c585eba67b7a8d71020d4ec', value).send({
+    await deltatrade.methods.depositToken(tokenAddress, value).send({
       from: accounts[0],
     })
 
@@ -97,9 +91,10 @@ class modal extends Component {
               </div>
               <div className="Modal__OtherTokenAmount">
                 <input
+                  name="tokenAmount"
                   placeholder="Token Amount"
                   value={this.state.tokenAmount}
-                  onChange={this.inputTokenAmount}
+                  onChange={this.handleChange}
                 />
               </div>
               <div className="Modal__OtherTokenButton">
@@ -113,9 +108,10 @@ class modal extends Component {
               </div>
               <div className="Modal__EthAmount">
                 <input
+                  name="ethAmount"
                   placeholder="ETH Amount"
                   value={this.state.ethAmount}
-                  onChange={this.inputEthAmount}
+                  onChange={this.handleChange}
                 />
               </div>
               <div className="Modal__EthButton">

@@ -1,14 +1,17 @@
 import React, { Component, Fragment } from 'react'
 
 import './Deposit.scss'
-import Modal from '../../utils/modal'
+import DepositModal from './DepositModal'
 
 class Deposit extends Component {
   state = {
     /*
-      TODO: manage amount & tokenType which user wants to deposit
+      TODO:
+      get ERC20 Token selected in side bar and contract address of it
+      give it to DepositModal Component as props
     */
     tokenType: 'MKR',
+    tokenAddress: '0x65e09e4260d81bc58c585eba67b7a8d71020d4ec',
     modal: false,
   }
 
@@ -35,9 +38,10 @@ class Deposit extends Component {
         >
           Deposit
         </button>
-        <Modal
+        <DepositModal
           status={this.state.modal}
           tokenType={this.state.tokenType}
+          tokenAddress={this.state.tokenAddress}
           click={this.onClickClose}
         />
       </Fragment>

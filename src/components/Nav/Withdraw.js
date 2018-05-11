@@ -1,31 +1,51 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
 import './Withdraw.scss'
+import WithdrawModal from './WithdrawModal'
 
-export default class Withdraw extends Component {
+class Withdraw extends Component {
   state = {
     /*
-      TODO: manage amount & tokenType which user wants to withdraw
+      TODO:
+      get ERC20 Token selected in side bar and contract address of it
+      give it to WithdrawModal Component as props
     */
-    amount: '',
-    tokenType: '',
+    tokenType: 'MKR',
+    tokenAddress: '0x65e09e4260d81bc58c585eba67b7a8d71020d4ec',
+    modal: false,
   }
 
-  onClickWithdraw() {
-    alert("comming soon!")
+  toggleModal = () => {
+    this.setState({
+      modal: !this.state.modal,
+    })
+    console.log(this.state.modal)
+  }
+
+  onClickClose = () => {
+    this.setState({
+      modal: !this.state.modal,
+    })
   }
 
   render() {
     return (
-      /*
-        TODO: if user clicks button, modal pops up to type amount and tokenType in
-      */
-      <button
-        className="Withdraw__button"
-        onClick={this.onClickWithdraw}
-      >
-        Withdraw
-      </button>
+      <Fragment>
+        <button
+          className="Withdraw__Button"
+          onClick={this.toggleModal}
+        >
+          Withdraw
+        </button>
+        <WithdrawModal
+          status={this.state.modal}
+          tokenType={this.state.tokenType}
+          tokenAddress={this.state.tokenAddress}
+          click={this.onClickClose}
+        />
+      </Fragment>
     )
   }
 }
+
+export default Withdraw

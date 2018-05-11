@@ -42,6 +42,7 @@ module.exports = {
       components: path.resolve(__dirname, 'src/components/'),
       utils: path.resolve(__dirname, 'src/utils/'),
       contracts: path.resolve(__dirname, 'contracts/'),
+      ethereum: path.resolve(__dirname, 'src/ethereum')
     }
   },
   plugins: [

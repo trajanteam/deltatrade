@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 
-import './modal.scss'
+import './WithdrawModal.scss'
 import web3 from 'ethereum/web3'
 import deltatrade from 'ethereum/deltatrade/deltatrade'
 import MKR from 'ethereum/token/MKR/MKR'
@@ -17,28 +17,22 @@ class modal extends Component {
     message: '',
   }
 
-  inputTokenAmount = (event) => {
+  handleChange = (e) => {
     this.setState({
-      tokenAmount: event.target.value
+      [e.target.name]: e.target.value
     })
   }
 
-  inputEthAmount = (event) => {
-    this.setState({
-      ethAmount: event.target.value
-    })
-  }
-
-  depositEth = async (event) => {
+  withdrawEth = async (event) => {
     event.preventDefault()
 
+    const value = await web3.utils.toWei(this.state.ethAmount, 'ether')
     const accounts = await web3.eth.getAccounts()
 
     this.setState({ message: 'Waiting...'})
 
-    await deltatrade.methods.deposit().send({
+    await deltatrade.methods.withdraw(value).send({
       from: accounts[0],
-      value: web3.utils.toWei(this.state.ethAmount, 'ether')
     })
 
     this.setState({
@@ -49,7 +43,7 @@ class modal extends Component {
     alert('Done!')
   }
 
-  depositToken = async (event) => {
+  withdrawToken = async (event) => {
     event.preventDefault()
 
     const tokenAddress = this.props.tokenAddress
@@ -58,13 +52,7 @@ class modal extends Component {
 
     this.setState({ message: 'Waiting...'})
 
-    await MKR.methods.approve('0x7868b6c8e409ba4d2aeec668676ec3a46fdbf084', value).send({
-      from: accounts[0],
-    })
-
-    this.setState({ message: 'Approved...'})
-
-    await deltatrade.methods.depositToken('0x65e09e4260d81bc58c585eba67b7a8d71020d4ec', value).send({
+    await deltatrade.methods.withdrawToken(tokenAddress, value).send({
       from: accounts[0],
     })
 
@@ -72,7 +60,10 @@ class modal extends Component {
       message: 'Success!',
       tokenAmount: '',
     })
-    alert('Done!')
+
+    const tokens = await deltatrade.methods.balanceOf(tokenAddress, accounts[0]).call()
+
+    alert('Your tokenBalnce is now : ' + tokens)
   }
 
   render() {
@@ -97,14 +88,15 @@ class modal extends Component {
               </div>
               <div className="Modal__OtherTokenAmount">
                 <input
+                  name="tokenAmount"
                   placeholder="Token Amount"
                   value={this.state.tokenAmount}
-                  onChange={this.inputTokenAmount}
+                  onChange={this.handleChange}
                 />
               </div>
               <div className="Modal__OtherTokenButton">
                 <button
-                  onClick={this.depositToken}>Deposit</button>
+                  onClick={this.withdrawToken}>Withdraw</button>
               </div>
             </div>
             <div className="Modal__Eth">
@@ -113,14 +105,15 @@ class modal extends Component {
               </div>
               <div className="Modal__EthAmount">
                 <input
+                  name="ethAmount"
                   placeholder="ETH Amount"
                   value={this.state.ethAmount}
-                  onChange={this.inputEthAmount}
+                  onChange={this.handleChange}
                 />
               </div>
               <div className="Modal__EthButton">
                 <button
-                  onClick={this.depositEth}>Deposit</button>
+                  onClick={this.withdrawEth}>Withdraw</button>
               </div>
             </div>
           </div>
