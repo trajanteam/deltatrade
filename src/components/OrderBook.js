@@ -6,6 +6,7 @@ import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import BuyOrder from './BuyOrder';
 import SellOrder from './SellOrder';
+import PlaceOrder from './PlaceOrder'
 
 const styles = theme => ({
   root: {
@@ -34,7 +35,7 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
     color: '#000000',
-  }
+  },
 });
 
 export class OrderBook extends React.Component {
@@ -48,13 +49,13 @@ export class OrderBook extends React.Component {
               ORDER BOOK
             </Typography>
           </Grid>
-          <Grid item xs={5}>
+          <Grid item xs={4}>
             <BuyOrder/>
           </Grid>
-          <Grid item xs={2}>
-            <Paper className={classes.order}>xs=3</Paper>
+          <Grid item xs={4}>
+            <PlaceOrder />
           </Grid>
-          <Grid item xs={5}>
+          <Grid item xs={4}>
             <SellOrder/>
           </Grid>
 
