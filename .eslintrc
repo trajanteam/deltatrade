@@ -15,5 +15,6 @@
     "prefer-arrow-callback": 0,
     "import/no-extraneous-dependencies": 0,
     "comma-dangle": ["error", "always-multiline"],
+    "react/forbid-prop-types": 0
   }
 }

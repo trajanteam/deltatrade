@@ -22,7 +22,7 @@ const Layout = () => (
     <LayoutCenter />
     <LayoutRight />
   </div>
-)
+);
 
 const LayoutLeft = () => (
   <div className="Layout__Left">
@@ -34,7 +34,7 @@ const LayoutLeft = () => (
       Layout__Sidebar
     </div>
   </div>
-)
+);
 
 const LayoutCenter = () => (
   <div className="Layout__Center">
@@ -54,7 +54,7 @@ const LayoutCenter = () => (
       <Market />
     </div>
   </div>
-)
+);
 
 const LayoutRight = () => (
   <div className="Layout__Right">
@@ -73,6 +73,6 @@ const LayoutRight = () => (
       <MyTrades />
     </div>
   </div>
-)
+);
 
 export default Layout

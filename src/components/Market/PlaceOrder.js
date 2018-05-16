@@ -1,132 +1,183 @@
 import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import SwipeableViews from 'react-swipeable-views';
 
-import './PlaceOrder.scss'
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+
+const styles = theme => ({
+  root: {
+    backgroundColor: theme.palette.background.paper,
+  },
+  margin: {
+    margin: theme.spacing.unit,
+  },
+  textField: {
+    width: '90%',
+    flexBasis: 100,
+  },
+  card: {
+    minWidth: 50%,
+  },
+});
+
+function TabContainer({ children }) {
+  return (
+    <Typography component="div" style={{ padding: 8 * 3 }}>
+      {children}
+    </Typography>
+  );
+}
+
+TabContainer.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 class PlaceOrder extends Component {
   /*
     TODO:
     control states using Redux
   */
-  state = {
-    buyTab: 'Activated',
-    sellTab: 'Deactivated',
-    button: 'Buy',
-    tokenType: 'MKR',
-    priceType: 'MKR/ETH',
-    paymentType: 'ETH',
-    amount: '',
-    price: '',
-    expires: '',
-  }
+  // state = {
+  //   buyTab: 'Activated',
+  //   sellTab: 'Deactivated',
+  //   button: 'Buy',
+  //   tokenType: 'MKR',
+  //   priceType: 'MKR/ETH',
+  //   paymentType: 'ETH',
+  //   amount: '',
+  //   price: '',
+  //   expires: '',
+  // };
 
-  onClickBuyTab = () => {
-    this.setState({
-      buyTab: 'Activated',
-      sellTab: 'Deactivated',
-      button: 'Buy',
-    })
-  }
+  // onClickBuyTab = () => {
+  //   this.setState({
+  //     buyTab: 'Activated',
+  //     sellTab: 'Deactivated',
+  //     button: 'Buy',
+  //   });
+  // };
+  //
+  // onClickSellTab = () => {
+  //   this.setState({
+  //     buyTab: 'Deactivated',
+  //     sellTab: 'Activated',
+  //     button: 'Sell',
+  //   });
+  // };
 
-  onClickSellTab = () => {
-    this.setState({
-      buyTab: 'Deactivated',
-      sellTab: 'Activated',
-      button: 'Sell',
-    })
-  }
 
   /*
     TODO:
     make onInput Callback function to set state on each <input>
   */
-  onAmountInputChange = () => {
+  // onAmountInputChange = () => {
+  //
+  // };
+  state = {
+    value: 0,
+  };
 
-  }
+  handleChange = (event, value) => {
+    this.setState({ value });
+  };
+
+  handleChangeIndex = (index) => {
+    this.setState({ value: index });
+  };
 
   render() {
+    // const { themeDirection } = this.props;
+    const { classes } = this.props;
+
     return (
       <Fragment>
-        <div className="PlaceOrder__Header">
-          Place Order!
-        </div>
-        <div className="PlaceOrder__OrderType">
-          <div
-            className={`PlaceOrder__Tab--${this.state.buyTab}`}
-            onClick={this.onClickBuyTab}
+        <AppBar position="static" color="default">
+          <Tabs
+            value={this.state.value}
+            onChange={this.handleChange}
+            indicatorColor="primary"
+            textColor="primary"
+            fullWidth
           >
-            Buy
-          </div>
-          <div
-            className={`PlaceOrder__Tab--${this.state.sellTab}`}
-            onClick={this.onClickSellTab}
-          >
-            Sell
-          </div>
-        </div>
-        <div className="PlaceOrder__OrderForm">
-          <htmlForm>
-            <label
-              htmlFor="tokenType"
-              className="PlaceOrder__Left"
-            >
-              {this.state.tokenType}
-            </label>
-            <input
-              id="tokenType"
-              placeholder="Amount to trade"
-              className="PlaceOrder__right"
-              value={this.state.amount}
+            <Tab label="Buy" />
+            <Tab label="Sell" />
+          </Tabs>
+        </AppBar>
+        <SwipeableViews
+          // axis={themeDirection === 'rtl' ? 'x-reverse' : 'x'}
+          index={this.state.value}
+          onChangeIndex={this.handleChangeIndex}
+        >
+          <TabContainer >
+            <TextField
+              label="Amount MKR"
+              className={classNames(classes.margin, classes.textField)}
+              style={{ width: classes.textField.width }}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">MKR</InputAdornment>,
+              }}
             />
-
-            <label
-              htmlFor="price"
-              className="PlaceOrder__Left"
-            >
-              {this.state.priceType}
-            </label>
-            <input
-              id="price"
-              placeholder="Price per token"
-              className="PlaceOrder__right"
-              value={this.state.price}
+            <TextField
+              label="Price"
+              className={classNames(classes.margin, classes.textField)}
+              style={{ width: classes.textField.width }}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">ETH</InputAdornment>,
+              }}
             />
-
-            <label
-              htmlFor="totalPrice"
-              className="PlaceOrder__Left"
-            >
-              {this.state.paymentType}
-            </label>
-            <input
-              id="totalPrice"
-              placeholder="Total Price"
-              className="PlaceOrder__right"
-              value={this.state.amount * this.state.price}
+            <TextField
+              label="Amount ETH"
+              className={classNames(classes.margin, classes.textField)}
+              style={{ width: classes.textField.width }}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">ETH</InputAdornment>,
+              }}
             />
-
-            <label
-              htmlFor="expires"
-              className="PlaceOrder__Left"
-            >
-              {this.state.tokenType}
-            </label>
-            <input
-              id="expires"
-              placeholder="numberOfBlocks"
-              className="PlaceOrder__right"
-              value={this.state.expires}
+          </TabContainer>
+          <TabContainer >
+            <TextField
+              label="Amount MKR"
+              className={classNames(classes.margin, classes.textField)}
+              style={{ width: classes.textField.width }}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">MKR</InputAdornment>,
+              }}
             />
-          <div className="PlaceOrder__Left" />
-            <button
-              className="PlaceOrder__button"
-            >
-              {this.state.button}
-            </button>
-          </htmlForm>
-        </div>
+            <TextField
+              label="Price"
+              className={classNames(classes.margin, classes.textField)}
+              style={{ width: classes.textField.width }}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">ETH</InputAdornment>,
+              }}
+            />
+            <TextField
+              label="Amount ETH"
+              className={classNames(classes.margin, classes.textField)}
+              style={{ width: classes.textField.width }}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">ETH</InputAdornment>,
+              }}
+            />
+          </TabContainer>
+        </SwipeableViews>
       </Fragment>
     )
   }
 }
 
-export default PlaceOrder
+PlaceOrder.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles, { withTheme: true })(PlaceOrder);
