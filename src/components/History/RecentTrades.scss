@@ -1,0 +1,69 @@
+%border {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.RecentTrades {
+  @extend %border;
+  height: 10%;
+  background-color: red;
+}
+
+.RecentTrades__Time {
+  @extend %border;
+  display: inline-block;
+  width: 30%;
+  height: 10%;
+  text-align: left;
+  padding: 4px;
+}
+
+.RecentTrades__Price {
+  @extend %border;
+  display: inline-block;
+  width: 35%;
+  height: 10%;
+  text-align: right;
+  padding: 4px;
+}
+
+.RecentTrades__Amount {
+  @extend %border;
+  display: inline-block;
+  width: 35%;
+  height: 10%;
+  text-align: right;
+  padding: 4px;
+}
+
+.RecentTrades__TradesTime {
+  @extend %border;
+  display: inline-block;
+  width: 30%;
+  height: 80%;
+  list-style: none;
+  text-align: center;
+  vertical-align: top;
+}
+
+.RecentTrades__TradesPrice {
+  @extend %border;
+  display: inline-block;
+  width: 35%;
+  height: 80%;
+  list-style: none;
+  text-align: right;
+  vertical-align: top;
+  padding-right: 3px;
+}
+
+.RecentTrades__TradesAmount {
+  @extend %border;
+  display: inline-block;
+  width: 35%;
+  height: 80%;
+  list-style: none;
+  text-align: right;
+  vertical-align: top;
+  padding-right: 3px;
+}

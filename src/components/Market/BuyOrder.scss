@@ -1,0 +1,49 @@
+%border {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.BuyOrder {
+  @extend %border;
+  display: inline-block;
+  width: 100%;
+  height: 45%;
+}
+
+.BuyOrder__Header {
+  @extend %border;
+  display: inline-block;
+  width: 100%;
+  height: 10%;
+  vertical-align: top;
+}
+
+.BuyOrder__Price {
+  @extend %border;
+  display: inline-block;
+  width: 33%;
+  height: 90%;
+  vertical-align: top;
+  text-align: right;
+  list-style: none;
+}
+
+.BuyOrder__CurrentBalance {
+  @extend %border;
+  display: inline-block;
+  width: 33%;
+  height: 90%;
+  vertical-align: top;
+  text-align: right;
+  list-style: none;
+}
+
+.BuyOrder__TotalBalance {
+  @extend %border;
+  display: inline-block;
+  width: 34%;
+  height: 90%;
+  vertical-align: top;
+  text-align: right;
+  list-style: none;
+}

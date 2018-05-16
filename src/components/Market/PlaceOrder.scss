@@ -1,0 +1,70 @@
+%border {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.PlaceOrder__Header {
+  @extend %border;
+  display: inline-block;
+  width: 100%;
+  height: 10%;
+  vertical-align: top;
+  text-align: center;
+}
+
+.PlaceOrder__OrderType {
+  @extend %border;
+  display: inline-block;
+  width: 100%;
+  height: 10%;
+  vertical-align: top;
+}
+
+.PlaceOrder__Tab--Activated {
+  display: inline-block;
+  background-color: #365e9b;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  text-decoration-color: white;
+}
+
+.PlaceOrder__Tab--Deactivated {
+  display: inline-block;
+  background-color: #092d63;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  text-decoration-color: white;
+}
+
+.PlaceOrder__OrderForm {
+  display: inline-block;
+  width: 100%;
+  height: 90%;
+}
+
+.PlaceOrder__Left {
+  display: inline-block;
+  width: 30%;
+  height: 10%;
+  text-align: right;
+  margin-right: 20px;
+}
+
+.PlaceOrder__right {
+  display: inline-block;
+  width: 60%;
+  margin: 2px;
+  border-radius: 3px;
+  height: 10%;
+}
+
+.PlaceOrder__button {
+  display: inline-block;
+  background-color: #219941;
+  width: 60%;
+  margin: 2px;
+  border-radius: 3px;
+  height: 10%;
+}

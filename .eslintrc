@@ -7,6 +7,7 @@
   ],
   "rules": {
     "import/no-unresolved": false,
+    "import/prefer-default-export": false,
     "import/extensions": false,
     "semi": 0,
     "no-console": 0,

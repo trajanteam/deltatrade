@@ -1,0 +1,102 @@
+%border {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.MyTrades__Header {
+  @extend %border;
+  height: 10%;
+  background-color: red;
+}
+
+.MyTrades__Pending--true {
+  @extend %border;
+  display: inline-block;
+  width: 50%;
+  height: 5%;
+  border-bottom: none;
+  cursor: pointer;
+}
+
+.MyTrades__Pending--false {
+  @extend %border;
+  display: inline-block;
+  width: 50%;
+  height: 5%;
+  cursor: pointer;
+}
+
+.MyTrades__Completed--true {
+  @extend %border;
+  display: inline-block;
+  width: 50%;
+  height: 5%;
+  border-bottom: none;
+  cursor: pointer;
+}
+
+.MyTrades__Completed--false {
+  @extend %border;
+  display: inline-block;
+  width: 50%;
+  height: 5%;
+  cursor: pointer;
+}
+
+.MyTrades__TabItem {
+  height: 5%;
+}
+
+.TabItem__TokenType {
+  @extend %border;
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  text-align: center;
+}
+
+.TabItem__Price {
+  @extend %border;
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  text-align: center;
+}
+
+.TabItem__Amount {
+  @extend %border;
+  display: inline-block;
+  width: 40%;
+  vertical-align: top;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  text-align: center;
+}
+
+.MyTrades__TypeItems {
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+  text-align: center;
+}
+
+.MyTrades__PriceItems {
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+  text-align: center;
+}
+
+.MyTrades__AmountItems {
+  display: inline-block;
+  width: 40%;
+  vertical-align: top;
+  text-align: center;
+}
